@@ -1,6 +1,6 @@
 name = "qstro"
-compatibility_date = "2024-07-01"
-pages_build_output_dir = "./.vercel/output/static"
+compatibility_date = "2025-04-29"
+pages_build_output_dir = "./.open-next"
 
 [vars]
 NEXT_PUBLIC_SUPABASE_URL = "https://wgdvnfbrypxikwzefvya.supabase.co"
