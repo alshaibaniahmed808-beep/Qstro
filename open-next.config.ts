@@ -1,3 +1,5 @@
-import { defineCloudflareConfig } from '@opennextjs/cloudflare/config'
+import { defineCloudflareConfig } from '@opennextjs/cloudflare/config';
 
-export default defineCloudflareConfig({})
+export default defineCloudflareConfig({
+  // إعدادات افتراضية كافية
+});
