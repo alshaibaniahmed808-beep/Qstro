@@ -10,44 +10,24 @@ export default async function DealerDashboard() {
   const { data: subscription } = await supabase.from('subscriptions').select('*').eq('user_id', user.id).single()
 
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-extrabold text-gray-900">Dealer Dashboard</h1>
+    <div className="max-w-6xl mx-auto">
+      <div className="flex flex-wrap justify-between items-center mb-8">
+        <h1 className="text-3xl font-extrabold text-gray-900">Dashboard</h1>
         <Link href="/cars/sell"><Button>+ Add Car</Button></Link>
       </div>
-
       <div className="grid md:grid-cols-3 gap-6 mb-10">
-        <div className="bg-white p-6 rounded-2xl shadow-sm border">
-          <p className="text-sm text-gray-500">Subscription</p>
-          <p className="text-2xl font-bold text-primary-600">{subscription?.plan || 'None'}</p>
-          <p className="text-xs text-gray-400">{subscription?.status === 'active' ? 'Active' : 'Inactive'}</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border">
-          <p className="text-sm text-gray-500">Listings</p>
-          <p className="text-2xl font-bold text-gray-900">{cars?.length || 0}</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl shadow-sm border">
-          <p className="text-sm text-gray-500">Messages</p>
-          <Link href="/messages" className="text-primary-600 font-medium">View messages →</Link>
-        </div>
+        <div className="bg-white p-6 rounded-2xl shadow-sm border"><p className="text-sm text-gray-500">Plan</p><p className="text-2xl font-bold text-primary-600">{subscription?.plan || 'Free'}</p></div>
+        <div className="bg-white p-6 rounded-2xl shadow-sm border"><p className="text-sm text-gray-500">Listings</p><p className="text-2xl font-bold">{cars?.length || 0}</p></div>
+        <div className="bg-white p-6 rounded-2xl shadow-sm border"><Link href="/messages" className="text-primary-600 font-medium">💬 Messages →</Link></div>
       </div>
-
       <h2 className="text-xl font-bold mb-4">Your Cars</h2>
-      <div className="space-y-4">
+      <div className="space-y-3">
         {cars?.map(car => (
-          <div key={car.id} className="flex items-center justify-between bg-white p-5 rounded-xl shadow-sm border">
-            <div>
-              <h3 className="font-semibold text-gray-900">{car.title}</h3>
-              <p className="text-sm text-gray-500">{car.status}</p>
-            </div>
+          <div key={car.id} className="flex items-center justify-between bg-white p-5 rounded-2xl shadow-sm border">
+            <div><h3 className="font-semibold">{car.title}</h3><p className="text-sm text-gray-500">{car.status}</p></div>
             <div className="flex gap-2">
               <Link href={`/cars/${car.id}`}><Button variant="secondary" size="sm">View</Button></Link>
-              <form action={async () => {
-                'use server'
-                const sup = createClient()
-                await sup.from('cars').delete().eq('id', car.id)
-                revalidatePath('/dashboard/dealer')
-              }}>
+              <form action={async () => { 'use server'; const sup = createClient(); await sup.from('cars').delete().eq('id', car.id); revalidatePath('/dashboard/dealer') }}>
                 <button type="submit" className="text-red-500 hover:underline text-sm">Delete</button>
               </form>
             </div>
@@ -56,4 +36,4 @@ export default async function DealerDashboard() {
       </div>
     </div>
   )
-  }
+}
