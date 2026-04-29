@@ -16,29 +16,32 @@ export default async function Home({ searchParams }) {
 
   return (
     <div>
+      {/* Hero Section */}
       <div className="hero-gradient rounded-3xl p-8 md:p-16 mb-12 text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4">
-          Find Your Next Car in <span className="text-primary-600">Libya</span>
+        <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-4">
+          Find Your Dream Car in <span className="text-primary-600">Libya</span>
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-          Trusted marketplace to buy and sell cars. Connect directly with sellers.
+        <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
+          The safest and fastest way to buy and sell cars. Connect with verified dealers.
         </p>
         <SearchBar />
       </div>
+
       {featured?.length > 0 && <FeaturedCars cars={featured} />}
-      <section className="mt-12">
+
+      <section className="mt-16">
         <div className="flex items-center gap-3 mb-8">
           <div className="h-1 w-12 bg-primary-600 rounded-full"></div>
           <h2 className="text-3xl font-extrabold text-gray-900">All Listings</h2>
         </div>
         {cars && cars.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {cars.map(car => <CarCard key={car.id} car={car} />)}
           </div>
         ) : (
-          <p className="text-gray-500 text-center py-20">No cars found.</p>
+          <p className="text-gray-400 text-center py-20">No cars found. Try a different search.</p>
         )}
       </section>
     </div>
   )
-          }
+      }
