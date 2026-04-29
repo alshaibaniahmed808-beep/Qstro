@@ -4,11 +4,7 @@ export default function Button({ children, variant = 'primary', className = '', 
     primary: 'bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 shadow-md hover:shadow-lg',
     secondary: 'bg-gray-100 text-gray-800 hover:bg-gray-200 focus:ring-gray-400',
     outline: 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50 focus:ring-primary-500',
-    ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-400',
+    ghost: 'text-gray-600 hover:bg-gray-100 focus:ring-gray-400',
   }
-  return (
-    <button className={`${base} ${variants[variant]} ${className}`} {...props}>
-      {children}
-    </button>
-  )
+  return <button className={`${base} ${variants[variant]} ${className}`} {...props}>{children}</button>
 }
