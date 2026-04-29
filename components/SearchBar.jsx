@@ -20,18 +20,18 @@ export default function SearchBar() {
   }
 
   return (
-    <form onSubmit={handleSearch} className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 border border-gray-100 max-w-4xl mx-auto">
-      <div className="flex flex-wrap gap-4 items-end">
-        <div className="flex-1 min-w-[200px]">
-          <Input label="City" value={city} onChange={e => setCity(e.target.value)} placeholder="e.g. Tripoli" />
+    <form onSubmit={handleSearch} className="bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-6 md:p-8 border border-white/50 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 items-end">
+        <div>
+          <Input label="City" value={city} onChange={e => setCity(e.target.value)} placeholder="Any city" />
         </div>
-        <div className="flex-1 min-w-[150px]">
-          <Input label="Min Price" type="number" value={minPrice} onChange={e => setMinPrice(e.target.value)} placeholder="0" />
+        <div>
+          <Input label="Min Price" type="number" value={minPrice} onChange={e => setMinPrice(e.target.value)} placeholder="0 LYD" />
         </div>
-        <div className="flex-1 min-w-[150px]">
+        <div>
           <Input label="Max Price" type="number" value={maxPrice} onChange={e => setMaxPrice(e.target.value)} placeholder="Any" />
         </div>
-        <Button type="submit" className="w-full sm:w-auto px-8 py-3 text-base">🔍 Search</Button>
+        <Button type="submit" className="w-full py-3 text-base font-bold">🔍 Search</Button>
       </div>
     </form>
   )
