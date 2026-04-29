@@ -1,7 +1,1 @@
-name = "qstro"
-compatibility_date = "2024-07-01"
-pages_build_output_dir = "./.vercel/output/static"
-
-[vars]
-NEXT_PUBLIC_SUPABASE_URL = "https://wgdvnfbrypxikwzefvya.supabase.co"
-NEXT_PUBLIC_SUPABASE_ANON_KEY = "sb_publishable_HKdF6FBMq-2NUY4P2Q1GiA_tHCtAIW0"
+pages_build_output_dir = "./.open-next"
