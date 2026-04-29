@@ -12,7 +12,7 @@ export default async function CarPage({ params }) {
   }
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       <ImageGallery images={car.images} />
       <div className="mt-8 grid md:grid-cols-3 gap-8">
         <div className="md:col-span-2 space-y-6">
@@ -20,20 +20,17 @@ export default async function CarPage({ params }) {
             <h1 className="text-4xl font-extrabold text-gray-900">{car.title}</h1>
             <p className="text-3xl font-bold text-primary-600 mt-2">{formatPrice(car.price)}</p>
           </div>
-          <div className="flex items-center gap-2 text-gray-600">
+          <div className="flex items-center gap-4 text-gray-600">
             <span>📍 {car.city}</span>
-            <span className="text-gray-300">|</span>
             <span>👤 {car.users?.name || 'Unknown'}</span>
           </div>
-          <div className="prose max-w-none text-gray-700 leading-relaxed whitespace-pre-wrap border-t pt-6">
-            {car.description}
-          </div>
+          <div className="prose max-w-none text-gray-700 leading-relaxed whitespace-pre-wrap border-t pt-6">{car.description}</div>
         </div>
         <div className="md:col-span-1">
-          <div className="bg-gray-50 rounded-2xl p-6 sticky top-24 shadow-sm border border-gray-100">
-            <p className="font-semibold text-gray-900 mb-4">Interested in this car?</p>
+          <div className="bg-gray-50 rounded-3xl p-6 sticky top-24 shadow-inner border border-gray-100">
+            <p className="font-semibold text-gray-900 mb-4">Interested?</p>
             <ChatSellerButton carId={car.id} sellerId={car.user_id} />
-            <p className="text-xs text-gray-400 mt-4">💬 Message the seller directly</p>
+            <p className="text-xs text-gray-400 mt-4">💬 Chat directly with the seller</p>
           </div>
         </div>
       </div>
