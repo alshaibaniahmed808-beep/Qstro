@@ -13,6 +13,6 @@ const nextConfig = {
       allowedOrigins: ['localhost:3000', 'qstro.pages.dev'],
     },
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
