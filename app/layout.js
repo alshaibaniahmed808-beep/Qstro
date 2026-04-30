@@ -3,16 +3,16 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata = {
-  title: 'QSTRO - Car Marketplace',
-  description: 'Buy and sell cars in Libya',
+  title: 'QSTRO - سوق السيارات في ليبيا',
+  description: 'منصة لبيع وشراء السيارات في ليبيا',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="ar" dir="rtl">
       <body className="min-h-screen flex flex-col">
         <Header />
-        <main className="flex-1 container mx-auto px-4 py-8">{children}</main>
+        <main className="flex-1 container mx-auto px-4 py-8 text-right">{children}</main>
         <Footer />
       </body>
     </html>
