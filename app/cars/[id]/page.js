@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { createClient } from '@/lib/supabase/server'
 import ImageGallery from '@/components/ImageGallery'
 import { formatPrice } from '@/lib/utils'

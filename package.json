@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "pages:build": "npx @opennextjs/cloudflare build"
+    "pages:build": "npx @opennextjs/cloudflare build && bash ./scripts_prepare_pages_output.sh",
+    "pages:verify": "bash ./scripts_verify_pages_build.sh"
   },
   "dependencies": {
     "@headlessui/react": "^2.0.0",

@@ -1,13 +1,15 @@
 import { updateSession } from '@/lib/supabase/middleware'
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerClient } from '@supabase/ssr'
+import { getSupabaseConfig } from '@/lib/supabase/config'
 
 export async function middleware(request) {
   const response = await updateSession(request)
 
+  const { url, anonKey } = getSupabaseConfig()
   const supabase = createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+    url,
+    anonKey,
     { cookies: { get(name) { return request.cookies.get(name)?.value } } }
   )
 
